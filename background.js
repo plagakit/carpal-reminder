@@ -6,7 +6,7 @@ let timer_state = "off"; // "off" "on" "paused"
 
 const updateWaitTime = async (new_time) => {
     wait_time = new_time;
-    stopTimer(false);
+    //stopTimer(false);
     await chrome.storage.local.set({"wait_time" : wait_time});
 };
 
@@ -95,7 +95,7 @@ chrome.notifications.onButtonClicked.addListener((notifID, buttonIndex) => {
             });
             (async () => {
                 // normally wed wait for them to finish but this is like. works yk
-                await updateWaitTime(wait_time + 3); // three minutes to complete the exercise?
+                await updateWaitTime(wait_time + 3*60); // three minutes to complete the exercise?
                 startTimer(); 
             })();
         } 

@@ -1,6 +1,7 @@
 #main {
     min-width: 240px;
     max-width: 240px;
+    background-color: lightyellow;
 }
 
 #stretch {
@@ -25,7 +26,7 @@ button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: hotpink;
     border: 1px solid black;
-    padding: 3px;
+    padding: 5px;
 }
 
 button:hover {
@@ -35,7 +36,6 @@ button:hover {
 #timer-content {
     display: flex;
     flex-direction: column;
-    background-color: lightyellow;
 }
 
 #timer-numbers {
@@ -75,7 +75,7 @@ button:hover {
     left:0px;
     width:100vw;
     height:100vh;
-    background:red;
+    /*background:red;*/
 }
 
 select {
@@ -88,10 +88,10 @@ select {
 
 .active ~ .collapse-content {
     display: block;
+    background-color: lightpink;
 }
 
 .collapse-btn {
-    background-color: white;
     width: 100%;
 }
 
@@ -109,6 +109,22 @@ select {
     top: 0px;
     position: absolute;
     display: none;
-    background: white;
+    background: lightyellow;
     
+}
+
+div.loader {
+    margin: auto;
+    border: 16px solid #e6e6e6;
+    border-top: 16px solid hotpink;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    aspect-ratio: 1;
+    width: 120px;
+    height: 120px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

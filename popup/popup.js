@@ -7,7 +7,6 @@ try {
     chrome;
 
     window.addEventListener("DOMContentLoaded", (event) => {
-        killLoadingScreen();
         
         // Start & stop timer
         startTimerButton = document.getElementById("start-timer");
@@ -34,8 +33,24 @@ try {
             updateWaitTime(event.target.value);
             chrome.runtime.sendMessage({cmd: "updateWaitTime", data: event.target.value});
         });
-    
     });
+
+    const waitForTimesToLoad = async () => {
+        let wait = undefined;
+        let cur = undefined;
+
+        while (!wait) {
+            chrome.storage.local.get(["wait_time"]).then(result => result.wait_time = wait);
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+
+        while (!cur) {
+            chrome.storage.local.get(["current_time"]).then(result => result.current_time = cur);
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        
+        return [wait, cur];
+    }
     
     // Check for changes in current time or state
     chrome.storage.onChanged.addListener((changes, areaName) => {
