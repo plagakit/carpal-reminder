@@ -4,7 +4,7 @@
     "name": "Test Extension",
     "description": "This extension is a test.",
     "version": "1.0",
-    "permissions": ["tabs", "storage"],
+    "permissions": ["tabs", "storage", "notifications"],
 
 
     "background": {
@@ -14,9 +14,12 @@
         "matches": ["<all_urls>"],
         "js": ["popup/popup.js"]
     }],
+    "content_security_policy": {
+        
+    },
 
     "action": {
         "default_popup": "popup/popup.html",
-        "default_icon": "images/test_icon.png"
+        "default_icon": "images/cat-icon.png"
     }
 }

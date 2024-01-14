@@ -3,14 +3,19 @@
         <script src="popup.js"></script>
         <link href="popup.css" rel="stylesheet">
     </head>
-  <body>
-    <h1>Carpal Pal</h1>
-
-    <p>Stretch your hands B)</p>
+  <body id="main" class="still-loading">
+    <div id="top">
+      <div id="title">
+        <h1>Carpal Pal</h1>
+        <p>Stretch your hands B)</p>
+      </div>
+      <!-- idk if there should be an img here -->
+      <img id="logo-img" src="../images/cat-icon.png">
+    </div>
 
     <div id="timer-content">
       <div id="timer-numbers">
-        <h2 id="timer-text">00:00</h2>
+        <h2 id="timer-text">...</h2>
       </div>
 
       <div id="timer-buttons">
@@ -28,36 +33,41 @@
 
       <button class="collapse-btn inactive">Settings</button>
 
-      <div class="collapsed">
-          SOMETHING PLACEHOLDER
-      </div>
-
-      <div class="uncollapsed collapse-content">
+      <div class="collapse-content">
         <input type="checkbox" id="is-writing-mode" value="true">
-        <label for="is-writing-mode">Writing Mode On</label>
+        <label for="is-writing-mode" title="When writing mode is off, the timer depletes when you type!">Writing Mode</label>
         <br>
         
         <label for="reminder-freq">Reminder Frequency</label>
         <select name="reminder-freq" id="reminder-freq">
           <option value="1">1 Sec</option>
-          <option value="900">15 Mins</option>
+          <option value="3">3 Sec</option>
           <option value="1800">30 Mins</option>
           <option value="2700">45 Mins</option>
           <option value="3600">1 Hour</option>
           <option value="7200">2 Hours</option>
         </select>
-
-        <!-- will be imgs -->
+        
         <div id="pal-select">
-          <button class="pal" id="pal1">pal1</button>
-          <button class="pal" id="pal2">pal2</button>
-          <button class="pal" id="pal3">pal3</button>
-          <button class="pal" id="pal4">pal4</button>
+          <button class="pal" id="cat">
+            <img id="pal-cat" src="../images/cat-neutral.png">
+          </button>
+          <button class="pal" id="dog">
+            <img id="pal-dog" src="../images/dog-neutral.png">
+          </button>
+          <button class="pal" id="lion">
+            <img id="pal-lion" src="../images/lion-neutral.png">
+          </button>
+          <button class="pal" id="cow">
+            <img id="pal-cow" src="../images/cow-neutral.png">
+          </button>
         </div>
       </div>
     </div>
     
-    <div id="loading-cover" style="display:flex; flex-direction: row; justify-content: center; text-align: center;">
+    <div id="loading-cover" class="loader-parent" style="display:flex; flex-direction: row; justify-content: center; text-align: center;">
+      <div class="loader"></div>
+      
       <div style="display:flex;flex-direction: column; justify-content: center;" style="height: 100vh">
         <div>
           <button class="pal" id="pal2" onclick="natasha()" style="border-radius: 15px;padding: 12px;font-size: 32px;">I'm Natasha</button>

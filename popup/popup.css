@@ -1,10 +1,24 @@
-body {
+#main {
     min-width: 240px;
-    border: 1px solid black;
+    max-width: 240px;
 }
 
-div {
-    /* border: 1px solid black; */
+#stretch {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+#top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 button {
@@ -12,6 +26,10 @@ button {
     background-color: hotpink;
     border: 1px solid black;
     padding: 3px;
+}
+
+button:hover {
+    background-color: teal;
 }
 
 #timer-content {
@@ -44,19 +62,11 @@ button {
 #pal-select {
     display: flex;
     justify-content: space-around;
+    margin: 7px;
 }
 
 .accordion.active .collapse-content {
     height: 150px;
-}
-
-.accordion {
-    border: 1px solid red;
-}
-
-.accordion .collapse-content {
-    /* display: none; */
-    border: 1px solid blue;
 }
 
 #loading-cover {
@@ -72,18 +82,33 @@ select {
     border: 1px solid black;
 }
 
-.inactive > .uncollapsed {
+.inactive ~ .collapse-content {
+    display: none;
+}
+
+.active ~ .collapse-content {
     display: block;
 }
 
-.inactive > .collapsed {
-    display: hidden;
+.collapse-btn {
+    background-color: white;
+    width: 100%;
 }
 
-.active > .uncollapsed {
-    display: hidden;
+.pal img {
+    width: 30px;
 }
 
-.active > .collapsed {
-    display: block;
+#logo-img {
+    width: 60px;
+    height: 60px;
+}
+
+.loader-parent {
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    display: none;
+    background: white;
+    
 }

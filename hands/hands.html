@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/libs/mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="/libs/mediapipe/control_utils/control_utils.js" ></script>
+    <script src="/libs/mediapipe/drawing_utils/drawing_utils.js" ></script>
+    <script src="/libs/mediapipe/hands/hands.js"></script>
+    <script src="/hands/hands.js"></script>
+    <link rel="stylesheet" href="/hands/hands.css">
+</head>
+<body class="still-loading">
+    <div class="container">
+        <div class="stacker">
+            <div style="display: flex; flex-direction: row; justify-content: center;">
+                <video id="input-video" ></video>
+            </div>
+            <div class="inner out-container">
+                <canvas id="output-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="loader-parent">
+        <div class="loader"></div>
+    </div>
+</body>
+</html>
