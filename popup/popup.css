@@ -1,0 +1,89 @@
+body {
+    min-width: 240px;
+    border: 1px solid black;
+}
+
+div {
+    /* border: 1px solid black; */
+}
+
+button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: hotpink;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+#timer-content {
+    display: flex;
+    flex-direction: column;
+    background-color: lightyellow;
+}
+
+#timer-numbers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#timer-text {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#timer-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#timer-buttons button {
+    margin: 0 7px;
+}
+
+#pal-select {
+    display: flex;
+    justify-content: space-around;
+}
+
+.accordion.active .collapse-content {
+    height: 150px;
+}
+
+.accordion {
+    border: 1px solid red;
+}
+
+.accordion .collapse-content {
+    /* display: none; */
+    border: 1px solid blue;
+}
+
+#loading-cover {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background:red;
+}
+
+select {
+    border: 1px solid black;
+}
+
+.inactive > .uncollapsed {
+    display: block;
+}
+
+.inactive > .collapsed {
+    display: hidden;
+}
+
+.active > .uncollapsed {
+    display: hidden;
+}
+
+.active > .collapsed {
+    display: block;
+}

@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+
+    "name": "Test Extension",
+    "description": "This extension is a test.",
+    "version": "1.0",
+    "permissions": ["tabs", "storage"],
+
+
+    "background": {
+        "service_worker": "background.js" 
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["popup/popup.js"]
+    }],
+
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": "images/test_icon.png"
+    }
+}
