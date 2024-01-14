@@ -1,7 +1,7 @@
 #main {
     min-width: 240px;
     max-width: 240px;
-    background-color: lightyellow;
+    background-color: #e7d1dc;  /*background colour: very light pink*/ 
 }
 
 #stretch {
@@ -24,7 +24,7 @@
 
 button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: hotpink;
+    background-color: hotpink; /*btn colour*/
     border: 1px solid black;
     padding: 5px;
 }
@@ -88,7 +88,7 @@ select {
 
 .active ~ .collapse-content {
     display: block;
-    background-color: lightpink;
+    background-color: lightpink; /*collapsible colour*/
 }
 
 .collapse-btn {
@@ -104,27 +104,56 @@ select {
     height: 60px;
 }
 
+#skip-container {
+    display: flex;
+    justify-content: center;
+    margin: 7px;
+}
+
 .loader-parent {
     left: 0px;
     top: 0px;
     position: absolute;
     display: none;
     background: lightyellow;
-    
+    overflow: hidden;
+    width: 98vw;
+    height: 98vh;
+    padding: 40px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-div.loader {
-    margin: auto;
-    border: 16px solid #e6e6e6;
-    border-top: 16px solid hotpink;
-    border-radius: 50%;
-    animation: spin 2s linear infinite;
-    aspect-ratio: 1;
-    width: 120px;
-    height: 120px;
+body.still-loading div.loader-parent, body.fade-loading div.loader-parent {
+    display: flex;
 }
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.still-loading {
+    overflow: hidden;
+}
+
+body.fade-loading div.loader-parent {
+    animation: fade-out 0.2s linear forwards;
+}
+
+@keyframes fade-out {
+    0% { opactity: 100%; }
+    100% { opacity: 0%; }
+}
+
+div.loader {
+    margin: auto;
+    border: 16px solid #e6e6e6;
+    border-top: 16px solid hotpink; /*spinner, change to theme - colour*/
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    aspect-ratio: 1;
+    width: 120px;
+    height: 120px;
 }

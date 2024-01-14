@@ -25,17 +25,19 @@
       </div>
     </div>
 
-    <button id="test-popup">Test Pop-up</button>
-    <br>
+    <div id="skip-container">
+      <button id="skip-to-popup">Skip to Exercises</button>
+    </div>
 
     <div class="accordion">
 
       <button class="collapse-btn inactive">Settings</button>
 
       <div class="collapse-content">
-        <input type="checkbox" id="is-writing-mode" value="true">
-        <label for="is-writing-mode" title="When writing mode is off, the timer depletes when you type!">Writing Mode</label>
-        <br>
+        <!-- could leave this in bc we wanted to include it? also bc it feels sad to collapse one setting -->
+        <!-- <input type="checkbox" id="is-writing-mode" value="true">
+        <label for="is-writing-mode" title="When writing mode is off, the timer depletes when you type!">Writing Mode</label> -->
+        <!-- <br> -->
         
         <label for="reminder-freq">Reminder Frequency</label>
         <select name="reminder-freq" id="reminder-freq">
@@ -46,32 +48,17 @@
           <option value="3600">1 Hour</option>
           <option value="7200">2 Hours</option>
         </select>
-        
-        <div id="pal-select">
-          <button class="pal" id="cat">
-            <img id="pal-cat" src="../images/cat-neutral.png">
-          </button>
-          <button class="pal" id="dog">
-            <img id="pal-dog" src="../images/dog-neutral.png">
-          </button>
-          <button class="pal" id="lion">
-            <img id="pal-lion" src="../images/lion-neutral.png">
-          </button>
-          <button class="pal" id="cow">
-            <img id="pal-cow" src="../images/cow-neutral.png">
-          </button>
-        </div>
       </div>
     </div>
     
-    <div id="loading-cover" class="loader-parent" style="display:flex; flex-direction: row; justify-content: center; text-align: center;">
+    <div id="loading-cover" class="loader-parent">
       <div class="loader"></div>
       
-      <div style="display:flex;flex-direction: column; justify-content: center;" style="height: 100vh">
+      <!-- <div style="display:flex;flex-direction: column; justify-content: center;" style="height: 100vh">
         <div>
-          <button class="pal" id="pal2" onclick="natasha()" style="border-radius: 15px;padding: 12px;font-size: 32px;">I'm Natasha</button>
+          <button class="pal" id="natasha-btn" style="border-radius: 15px;padding: 12px;font-size: 32px;">I'm Natasha</button>
         </div>
-      </div>
+      </div> -->
     </div>
   </body>
 </html>

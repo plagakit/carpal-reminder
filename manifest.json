@@ -6,14 +6,15 @@
     "version": "1.0",
     "permissions": ["tabs", "storage", "notifications"],
 
-
     "background": {
         "service_worker": "background.js" 
     },
-    "content_scripts": [{
-        "matches": ["<all_urls>"],
-        "js": ["popup/popup.js"]
-    }],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["popup/popup.js"]
+        }
+    ],
     "content_security_policy": {
         
     },

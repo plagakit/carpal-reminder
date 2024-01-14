@@ -91,7 +91,8 @@ chrome.notifications.onButtonClicked.addListener((notifID, buttonIndex) => {
         if (buttonIndex == 0) { // sure!
             console.log("yaya");
             chrome.tabs.create({
-                url : "../hands/hands.html"
+                // todo CHANGE IN PRODUCTION
+                url : "https://kams04.github.io/DeltaHacksXP2/"
             });
             (async () => {
                 // normally wed wait for them to finish but this is like. works yk

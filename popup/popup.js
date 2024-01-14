@@ -16,15 +16,15 @@ try {
     
         stopTimerButton = document.getElementById("stop-timer");
         stopTimerButton.addEventListener("click", () => {
-             chrome.runtime.sendMessage({cmd: "pauseTimer"});
+            chrome.runtime.sendMessage({cmd: "pauseTimer"});
         });
     
         // Button for testing the popup website
-        const test_popup = document.getElementById("test-popup");
-        test_popup.addEventListener("click", () => {
-            alert("Test!");
-            chrome.tabs.create({ url: "./test.html" });
-        });
+        // const test_popup = document.getElementById("test-popup");
+        // test_popup.addEventListener("click", () => {
+        //     alert("Test!");
+        //     chrome.tabs.create({ url: "./test.html" });
+        // });
 
         // Frequency selector
         freqSelector = document.getElementById("reminder-freq");
@@ -52,6 +52,10 @@ try {
         return [wait, cur];
     }
     
+    setTimeout( () => {
+        killLoadingScreen();
+    }, 2000);
+
     // Check for changes in current time or state
     chrome.storage.onChanged.addListener((changes, areaName) => {
         if (changes.current_time) {
@@ -99,7 +103,10 @@ try {
         const seconds = String(time_left % 60).padStart(2, '0');
     
         const time_string = `${minutes}:${seconds}`;
-        document.getElementById("timer-text").innerText = time_string;
+        const ee = document.getElementById("timer-text");
+        if (ee !== null) {
+            ee.innerText = time_string;
+        }
     
         killLoadingScreen();
     };
@@ -107,29 +114,45 @@ try {
     const killLoadingScreen = () => {
         // kill loading cover
         //console.log('killing loading-cover')
-        const load = document.getElementById("loading-cover")
-        if (load !== null) {
-            document.body.removeChild(load);
+        // const load = document.getElementById("loading-cover")
+        // if (load !== null) {
+        //     document.body.removeChild(load);
+        // }
+        if (document.body.classList.contains('still-loading')) {
+            setTimeout( () => {
+                console.log('Stopping loading');
+                document.body.classList.remove('still-loading');
+                document.body.classList.add('fade-loading');
+                setTimeout( () => {
+                    document.body.classList.remove('fade-loading');
+                }, 200);
+            }, 0);
         }
     };
+
+    window.killLoadingScreen = killLoadingScreen;
 
 } catch {
     console.log("Chrome undefined");
 }
 
-function natasha() {
-  const ele = document.querySelector('#loading-cover');
-  if (ele !== null) {
-    document.body.removeChild(ele);
-  }
-}
+// function natasha() {
+//   const ele = document.querySelector('#loading-cover');
+//   if (ele !== null) {
+//     document.body.removeChild(ele);
+//   }
+// }
 
-// natasha's space
-document.addEventListener('DOMContentLoaded', () => {
-    const accordion = document.querySelector('.collapse-btn');
+// // natasha's space
+// document.addEventListener('DOMContentLoaded', () => {
+//     document.querySelector('#natasha-btn').addEventListener( 'click', (ev) => {
+//         natasha();
+//     })
+
+//     const accordion = document.querySelector('.collapse-btn');
     
-    accordion.addEventListener('click', (ev) => {
-        accordion.classList.toggle('active');
-        accordion.classList.toggle('inactive');
-    });
-});
+//     accordion.addEventListener('click', (ev) => {
+//         accordion.classList.toggle('active');
+//         accordion.classList.toggle('inactive');
+//     });
+// });
